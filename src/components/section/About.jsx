@@ -24,7 +24,7 @@ const About = () => {
                     {/* Connector Line */}
                     <div className="org-connector org-connector-main"></div>
 
-                    {/* Level 2 - Co-Founder & Lead Admin */}
+                    {/* Level 2 - Co-Founder */}
                     <div className="org-level org-level-2">
                         <div className="org-branch">
                             <div className="org-card">
@@ -35,6 +35,13 @@ const About = () => {
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    {/* Connector Line */}
+                    <div className="org-connector"></div>
+
+                    {/* Level 3 - Lead Admin */}
+                    <div className="org-level org-level-3">
                         <div className="org-branch">
                             <div className="org-card">
                                 <div className="org-avatar" style={{ backgroundImage: "url('/assets/img/eka clarissa.png')" }}></div>
@@ -49,8 +56,8 @@ const About = () => {
                     {/* Connector Line */}
                     <div className="org-connector"></div>
 
-                    {/* Level 3 - Team Leads */}
-                    <div className="org-level org-level-3">
+                    {/* Level 4 - Head of Social Media */}
+                    <div className="org-level org-level-4">
                         <div className="org-branch">
                             <div className="org-card">
                                 <div className="org-avatar" style={{ backgroundImage: "url('/assets/img/Diana.jpeg')" }}></div>
@@ -65,8 +72,8 @@ const About = () => {
                     {/* Connector Line */}
                     <div className="org-connector"></div>
 
-                    {/* Level 4 - Admin Team */}
-                    <div className="org-level org-level-4">
+                    {/* Level 5 - Admin Team */}
+                    <div className="org-level org-level-5">
                         <div className="org-branch">
                             <div className="org-card org-card-small">
                                 <div className="org-avatar" style={{ backgroundImage: "url('/assets/img/Made candra.png')" }}></div>
@@ -99,8 +106,8 @@ const About = () => {
                     {/* Connector Line */}
                     <div className="org-connector"></div>
 
-                    {/* Level 5 - Specialists */}
-                    <div className="org-level org-level-5">
+                    {/* Level 6 - Specialists */}
+                    <div className="org-level org-level-6">
                         <div className="org-branch">
                             <div className="org-card org-card-small">
                                 <div className="org-avatar" style={{ backgroundImage: "url('/assets/img/Pande.jpeg')" }}></div>

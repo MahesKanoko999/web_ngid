@@ -567,9 +567,8 @@ p {
 }
 
 /* Horizontal line for branches */
-.org-level-2::before,
-.org-level-4::before,
-.org-level-5::before {
+.org-level-5::before,
+.org-level-6::before {
     content: '';
     position: absolute;
     top: -20px;
@@ -583,15 +582,11 @@ p {
     position: relative;
 }
 
-.org-level-2::before {
-    width: 200px;
-}
-
-.org-level-4::before {
+.org-level-5::before {
     width: 400px;
 }
 
-.org-level-5::before {
+.org-level-6::before {
     width: 250px;
 }
 
@@ -615,9 +610,8 @@ p {
         min-width: 100%;
     }
 
-    .org-level-2::before,
-    .org-level-4::before,
-    .org-level-5::before {
+    .org-level-5::before,
+    .org-level-6::before {
         display: none;
     }
 
