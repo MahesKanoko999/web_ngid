@@ -556,11 +556,16 @@ p {
     left: 50%;
     transform: translate(-50%, -50%) rotateY(0deg);
     z-index: 3;
-    background-image: url('/assets/img/logo_NGID.png'), linear-gradient(rgba(30, 60, 114, 0.3), rgba(30, 60, 114, 0.3));
+    /* Clean background definition */
+    background-color: rgba(30, 60, 114, 0.3);
+    background-image: url('/assets/img/logo_NGID.png');
     background-position: center;
-    background-size: 150px, cover;
+    background-size: 100px auto;
+    /* Force fixed width, auto height */
     background-repeat: no-repeat;
-    background-blend-mode: normal, normal;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    /* Eliminate overflow risk */
 }
 
 .card-layer:nth-child(2) {
