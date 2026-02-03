@@ -525,7 +525,11 @@ p {
     left: 50%;
     transform: translate(-50%, -50%) rotateY(0deg);
     z-index: 3;
-    background: url('/assets/img/logo_NGID.png') center/40% no-repeat, rgba(30, 60, 114, 0.3);
+    background-image: url('/assets/img/logo_NGID.png'), linear-gradient(rgba(30, 60, 114, 0.3), rgba(30, 60, 114, 0.3));
+    background-position: center;
+    background-size: 150px, cover;
+    background-repeat: no-repeat;
+    background-blend-mode: normal, normal;
 }
 
 .card-layer:nth-child(2) {
