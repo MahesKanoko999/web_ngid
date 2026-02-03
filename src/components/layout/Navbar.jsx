@@ -5,8 +5,9 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [logoText, setLogoText] = useState('');
+    const [activeSection, setActiveSection] = useState('home');
 
-    // Scroll effect
+    // Scroll effect for navbar background
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 50) {
@@ -18,6 +19,43 @@ const Navbar = () => {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // IntersectionObserver for active section detection
+    useEffect(() => {
+        const sections = ['home', 'about', 'services', 'reviews', 'contact'];
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px', // Trigger when section is in upper portion
+            threshold: 0
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        sections.forEach((sectionId) => {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                observer.observe(element);
+            }
+        });
+
+        return () => {
+            sections.forEach((sectionId) => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    observer.unobserve(element);
+                }
+            });
+        };
     }, []);
 
     // Typewriter effect
@@ -39,6 +77,11 @@ const Navbar = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
+    const handleNavClick = (sectionId) => {
+        setActiveSection(sectionId);
+        setIsMobileMenuOpen(false);
+    };
+
     return (
         <header className="header">
             <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
@@ -50,11 +93,31 @@ const Navbar = () => {
 
                     {/* Desktop Menu - inside the pill */}
                     <div className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-                        <a href="#home" className="nav-link active" onClick={() => setIsMobileMenuOpen(false)}>Beranda</a>
-                        <a href="#about" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Tentang Kami</a>
-                        <a href="#services" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Layanan</a>
-                        <a href="#reviews" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Reviews</a>
-                        <a href="#contact" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Kontak</a>
+                        <a
+                            href="#home"
+                            className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}
+                            onClick={() => handleNavClick('home')}
+                        >Beranda</a>
+                        <a
+                            href="#about"
+                            className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
+                            onClick={() => handleNavClick('about')}
+                        >Tentang Kami</a>
+                        <a
+                            href="#services"
+                            className={`nav-link ${activeSection === 'services' ? 'active' : ''}`}
+                            onClick={() => handleNavClick('services')}
+                        >Layanan</a>
+                        <a
+                            href="#reviews"
+                            className={`nav-link ${activeSection === 'reviews' ? 'active' : ''}`}
+                            onClick={() => handleNavClick('reviews')}
+                        >Reviews</a>
+                        <a
+                            href="#contact"
+                            className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
+                            onClick={() => handleNavClick('contact')}
+                        >Kontak</a>
                     </div>
 
                     <div className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}>
