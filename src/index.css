@@ -463,20 +463,49 @@ p {
     align-items: center;
     gap: 0;
     padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .org-level {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 24px;
     flex-wrap: wrap;
+    position: relative;
 }
 
-.org-branch {
+.org-level-single {
+    display: flex;
+    justify-content: center;
+}
+
+.org-level-group {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    padding: 2rem;
+    margin-top: 10px;
+}
+
+.org-group-title {
+    color: var(--accent-cyan);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.org-group-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 /* Org Card Base */
@@ -488,7 +517,7 @@ p {
     display: flex;
     align-items: center;
     gap: 1rem;
-    min-width: 250px;
+    min-width: 280px;
     transition: all 0.3s ease;
 }
 
@@ -502,13 +531,13 @@ p {
 .org-card.org-ceo {
     background: linear-gradient(135deg, rgba(30, 60, 114, 0.5), rgba(79, 195, 247, 0.1));
     border-color: var(--accent-cyan);
-    min-width: 280px;
+    min-width: 320px;
     padding: 2rem;
 }
 
 .org-card.org-card-small {
-    min-width: 200px;
-    padding: 1rem;
+    min-width: 220px;
+    padding: 1.25rem;
 }
 
 .org-avatar {
@@ -521,6 +550,20 @@ p {
     flex-shrink: 0;
 }
 
+.org-avatar-initials {
+    background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.org-avatar-initials::after {
+    content: attr(data-initials);
+}
+
 .org-ceo .org-avatar {
     width: 80px;
     height: 80px;
@@ -530,6 +573,12 @@ p {
 .org-card-small .org-avatar {
     width: 50px;
     height: 50px;
+}
+
+.org-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .org-info h4 {
@@ -548,9 +597,16 @@ p {
 
 .org-role {
     color: var(--accent-cyan);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    display: block;
+}
+
+.org-desc {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin: 0;
 }
 
 /* Connecting Lines */
@@ -561,45 +617,19 @@ p {
     margin: 0 auto;
 }
 
-.org-connector-main {
-    height: 50px;
-    width: 3px;
-}
-
-/* Horizontal line for branches */
-.org-level-5::before,
-.org-level-6::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 2px;
-    background: var(--glass-border);
-}
-
-.org-level {
-    position: relative;
-}
-
-.org-level-5::before {
-    width: 400px;
-}
-
-.org-level-6::before {
-    width: 250px;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
-    .org-level {
+
+    .org-level,
+    .org-group-cards {
         flex-direction: column;
-        gap: 20px;
+        gap: 16px;
+        align-items: center;
     }
 
     .org-card {
         min-width: 100%;
-        max-width: 300px;
+        max-width: 320px;
     }
 
     .org-card.org-ceo {
@@ -608,11 +638,12 @@ p {
 
     .org-card.org-card-small {
         min-width: 100%;
+        max-width: 300px;
     }
 
-    .org-level-5::before,
-    .org-level-6::before {
-        display: none;
+    .org-level-group {
+        width: 100%;
+        padding: 1.5rem;
     }
 
     .org-connector {
