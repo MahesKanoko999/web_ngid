@@ -1,98 +1,125 @@
 
 const About = () => {
     return (
-        <section id="about" className="about-modern">
+        <section id="about" className="about-section">
             <div className="container">
                 <div className="section-header">
                     <h2 className="section-title">Siapa Kami?</h2>
                     <p className="section-subtitle">Tim profesional di balik setiap tugas yang selesai tepat waktu.</p>
                 </div>
 
-                <div className="org-deck">
-                    {/* Dika */}
-                    <div className="team-card">
-                        <div className="team-img" style={{ backgroundImage: "url('/assets/img/Dika.jpg')" }}></div>
-                        <div className="team-info">
-                            <span className="team-role">CEO</span>
-                            <h3>Dika</h3>
+                {/* Organizational Chart */}
+                <div className="org-chart">
+                    {/* Level 1 - CEO */}
+                    <div className="org-level org-level-1">
+                        <div className="org-card org-ceo">
+                            <div className="org-avatar" style={{ backgroundImage: "url('/assets/img/Dika.jpg')" }}></div>
+                            <div className="org-info">
+                                <h4>Dika</h4>
+                                <span className="org-role">CEO</span>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Mahes */}
-                    <div className="team-card">
-                        <div className="team-img" style={{ backgroundImage: "url('/assets/img/Mahes.jpeg')" }}></div>
-                        <div className="team-info">
-                            <span className="team-role">Co-Founder</span>
-                            <h3>Mahes Kanoko</h3>
+                    {/* Connector Line */}
+                    <div className="org-connector org-connector-main"></div>
+
+                    {/* Level 2 - Co-Founder & Lead Admin */}
+                    <div className="org-level org-level-2">
+                        <div className="org-branch">
+                            <div className="org-card">
+                                <div className="org-avatar" style={{ backgroundImage: "url('/assets/img/Mahes.jpeg')" }}></div>
+                                <div className="org-info">
+                                    <h4>Mahes Kanoko</h4>
+                                    <span className="org-role">Co-Founder</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="org-branch">
+                            <div className="org-card">
+                                <div className="org-avatar" style={{ backgroundImage: "url('/assets/img/eka clarissa.png')" }}></div>
+                                <div className="org-info">
+                                    <h4>Eka Clarissa</h4>
+                                    <span className="org-role">Lead Admin</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Eka */}
-                    <div className="team-card">
-                        <div className="team-img" style={{ backgroundImage: "url('/assets/img/eka clarissa.png')" }}></div>
-                        <div className="team-info">
-                            <span className="team-role">Lead Admin</span>
-                            <h3>Eka Clarissa</h3>
+                    {/* Connector Line */}
+                    <div className="org-connector"></div>
+
+                    {/* Level 3 - Team Leads */}
+                    <div className="org-level org-level-3">
+                        <div className="org-branch">
+                            <div className="org-card">
+                                <div className="org-avatar" style={{ backgroundImage: "url('/assets/img/Diana.jpeg')" }}></div>
+                                <div className="org-info">
+                                    <h4>Budiana</h4>
+                                    <span className="org-role">Head of Social Media</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Budiana */}
-                    <div className="team-card">
-                        <div className="team-img" style={{ backgroundImage: "url('/assets/img/Diana.jpeg')" }}></div>
-                        <div className="team-info">
-                            <span className="team-role">Head of Social Media</span>
-                            <h3>Budiana</h3>
+                    {/* Connector Line */}
+                    <div className="org-connector"></div>
+
+                    {/* Level 4 - Admin Team */}
+                    <div className="org-level org-level-4">
+                        <div className="org-branch">
+                            <div className="org-card org-card-small">
+                                <div className="org-avatar" style={{ backgroundImage: "url('/assets/img/Made candra.png')" }}></div>
+                                <div className="org-info">
+                                    <h4>Made Candra</h4>
+                                    <span className="org-role">Admin Pagi</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="org-branch">
+                            <div className="org-card org-card-small">
+                                <div className="org-avatar" style={{ backgroundImage: "url('/assets/img/Kirana anggiswari.png')" }}></div>
+                                <div className="org-info">
+                                    <h4>Kirana Anggiswari</h4>
+                                    <span className="org-role">Admin Siang</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="org-branch">
+                            <div className="org-card org-card-small">
+                                <div className="org-avatar" style={{ backgroundImage: "url('/assets/img/Dimas.png')" }}></div>
+                                <div className="org-info">
+                                    <h4>Dimas</h4>
+                                    <span className="org-role">Admin Malam</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Made Candra */}
-                    <div className="team-card">
-                        <div className="team-img" style={{ backgroundImage: "url('/assets/img/Made candra.png')" }}></div>
-                        <div className="team-info">
-                            <span className="team-role">Admin Pagi</span>
-                            <h3>Made Candra</h3>
+                    {/* Connector Line */}
+                    <div className="org-connector"></div>
+
+                    {/* Level 5 - Specialists */}
+                    <div className="org-level org-level-5">
+                        <div className="org-branch">
+                            <div className="org-card org-card-small">
+                                <div className="org-avatar" style={{ backgroundImage: "url('/assets/img/Pande.jpeg')" }}></div>
+                                <div className="org-info">
+                                    <h4>Pande Suardana</h4>
+                                    <span className="org-role">Video & Motion</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="org-branch">
+                            <div className="org-card org-card-small">
+                                <div className="org-avatar" style={{ backgroundImage: "url('/assets/img/Amel.png')" }}></div>
+                                <div className="org-info">
+                                    <h4>Amel</h4>
+                                    <span className="org-role">QC Social Media</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    {/* Kirana */}
-                    <div className="team-card">
-                        <div className="team-img" style={{ backgroundImage: "url('/assets/img/Kirana anggiswari.png')" }}></div>
-                        <div className="team-info">
-                            <span className="team-role">Admin Siang</span>
-                            <h3>Kirana Anggiswari</h3>
-                        </div>
-                    </div>
-
-                    {/* Dimas */}
-                    <div className="team-card">
-                        <div className="team-img" style={{ backgroundImage: "url('/assets/img/Dimas.png')" }}></div>
-                        <div className="team-info">
-                            <span className="team-role">Admin Malam</span>
-                            <h3>Dimas</h3>
-                        </div>
-                    </div>
-
-                    {/* Pande */}
-                    <div className="team-card">
-                        <div className="team-img" style={{ backgroundImage: "url('/assets/img/Pande.jpeg')" }}></div>
-                        <div className="team-info">
-                            <span className="team-role">Video & Motion</span>
-                            <h3>Pande Suardana</h3>
-                        </div>
-                    </div>
-
-                    {/* Amel */}
-                    <div className="team-card">
-                        <div className="team-img" style={{ backgroundImage: "url('/assets/img/Amel.png')" }}></div>
-                        <div className="team-info">
-                            <span className="team-role">QC Social Media</span>
-                            <h3>Amel</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div style={{ textAlign: 'center', marginTop: '2rem', color: 'var(--text-dim)' }}>
-                    <p><i className="fas fa-arrows-alt-h"></i> Geser untuk melihat tim lainnya</p>
                 </div>
             </div>
         </section>

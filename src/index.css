@@ -451,56 +451,179 @@ p {
     /* Move half minus gap */
 }
 
-/* About Section Refresh */
-.about-modern {
+/* About Section - Org Chart */
+.about-section {
     padding: 100px 0;
+    background: radial-gradient(circle at 50% 100%, rgba(30, 60, 114, 0.2) 0%, transparent 60%);
 }
 
-.org-deck {
+.org-chart {
     display: flex;
-    overflow-x: auto;
-    gap: 24px;
-    padding-bottom: 40px;
-    scroll-snap-type: x mandatory;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 40px 20px;
 }
 
-.team-card {
-    min-width: 300px;
-    height: 400px;
+.org-level {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.org-branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Org Card Base */
+.org-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    border-radius: var(--card-radius);
-    position: relative;
-    overflow: hidden;
-    scroll-snap-align: center;
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 250px;
+    transition: all 0.3s ease;
 }
 
-.team-img {
-    width: 100%;
-    height: 100%;
+.org-card:hover {
+    border-color: var(--accent-cyan);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.org-card.org-ceo {
+    background: linear-gradient(135deg, rgba(30, 60, 114, 0.5), rgba(79, 195, 247, 0.1));
+    border-color: var(--accent-cyan);
+    min-width: 280px;
+    padding: 2rem;
+}
+
+.org-card.org-card-small {
+    min-width: 200px;
+    padding: 1rem;
+}
+
+.org-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     background-size: cover;
     background-position: center;
-    transition: transform 0.5s ease;
+    border: 2px solid var(--glass-border);
+    flex-shrink: 0;
 }
 
-.team-card:hover .team-img {
-    transform: scale(1.1);
+.org-ceo .org-avatar {
+    width: 80px;
+    height: 80px;
+    border-color: var(--accent-cyan);
 }
 
-.team-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 2rem;
-    background: linear-gradient(to top, #0f172a 0%, transparent 100%);
+.org-card-small .org-avatar {
+    width: 50px;
+    height: 50px;
 }
 
-.team-role {
+.org-info h4 {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.org-ceo .org-info h4 {
+    font-size: 1.3rem;
+}
+
+.org-card-small .org-info h4 {
+    font-size: 0.95rem;
+}
+
+.org-role {
     color: var(--accent-cyan);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+/* Connecting Lines */
+.org-connector {
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(180deg, var(--accent-cyan), var(--glass-border));
+    margin: 0 auto;
+}
+
+.org-connector-main {
+    height: 50px;
+    width: 3px;
+}
+
+/* Horizontal line for branches */
+.org-level-2::before,
+.org-level-4::before,
+.org-level-5::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    background: var(--glass-border);
+}
+
+.org-level {
+    position: relative;
+}
+
+.org-level-2::before {
+    width: 200px;
+}
+
+.org-level-4::before {
+    width: 400px;
+}
+
+.org-level-5::before {
+    width: 250px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .org-level {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .org-card {
+        min-width: 100%;
+        max-width: 300px;
+    }
+
+    .org-card.org-ceo {
+        min-width: 100%;
+    }
+
+    .org-card.org-card-small {
+        min-width: 100%;
+    }
+
+    .org-level-2::before,
+    .org-level-4::before,
+    .org-level-5::before {
+        display: none;
+    }
+
+    .org-connector {
+        height: 30px;
+    }
 }
 
 /* Contact Modern */
