@@ -1,82 +1,57 @@
 
+// Custom CSS Marquee implementation
+
 const Reviews = () => {
     const reviews = [
         {
             name: "Nadia Putri",
-            role: "Mahasiswi Ilmu Komunikasi",
-            text: "\"Butuh slide presentasi dadakan, NgidihTulungID kelarin dalam 6 jam dengan desain rapi dan data lengkap. Tinggal presentasi tanpa drama!\""
+            role: "Mahasiswi Ilkom",
+            text: "\"Slide presentasi dadakan selesai dalam 6 jam. Desainnya modern banget!\""
         },
         {
             name: "Arif Wicaksono",
-            role: "Supervisor Operasional",
-            text: "\"Proposal tender yang mereka susun sangat tertata, lengkap dengan tabel biaya dan timeline. Pihak manajemen langsung acc karena tinggal revisi minor.\""
+            role: "Business Owner",
+            text: "\"Proposal tender sangat rapi. Langsung deal sama klien besar.\""
         },
         {
             name: "Maya Lestari",
             role: "Content Creator",
-            text: "\"Artikel blog dan copy medsosnya tone-nya pas banget sama brandku. Revisi tinggal sedikit karena mereka sudah riset audience duluan.\""
-        },
-        {
-            name: "Raka Pradana",
-            role: "Pemilik UMKM Kuliner",
-            text: "\"Landing page sederhana yang mereka buat bikin pelanggan bisa order via WA dengan mudah. Traffic dari Instagram langsung ke-filter rapi.\""
-        },
-        {
-            name: "Sinta Aulia",
-            role: "Koordinator Acara Kampus",
-            text: "\"Dokumen proposal event disunting rapi, grammar diperbaiki, dan formatnya langsung siap cetak. Hemat waktu panitia banget.\""
+            text: "\"Copywriting mereka pas banget sama tone brand aku. Engagement naik!\""
         },
         {
             name: "Kevin Dharma",
-            role: "Freelance Designer",
-            text: "\"Sering outsourcing copy dan riset kecil ke NgidihTulungID. Outputnya konsisten, file tertata, jadi aku bisa fokus di visual saja.\""
+            role: "Freelancer",
+            text: "\"Outsourcing tugas ke sini aman banget. Hasil selalu on-time.\""
+        },
+        {
+            name: "Raka Pradana",
+            role: "UMKM Kuliner",
+            text: "\"Website landing page simpel tapi konversinya tinggi via WA.\""
         }
     ];
 
     return (
-        <section id="reviews" className="reviews">
-            <div className="container">
-                <div className="section-header">
-                    <h2 className="section-title">Review Pelanggan</h2>
-                    <p className="section-subtitle">Cerita nyata dari pelanggan NgidihTulungID yang sudah merasakan layanan kami</p>
-                </div>
-                <div className="reviews-overview">
-                    <div className="overview-stats">
-                        <div className="overview-item">
-                            <span className="overview-number">4.9</span>
-                            <div className="stars">
-                                {[...Array(5)].map((_, i) => <i key={i} className="fas fa-star"></i>)}
-                            </div>
-                            <span className="overview-label">Rating Rata-rata</span>
-                        </div>
-                        <div className="overview-item">
-                            <span className="overview-number">1000+</span>
-                            <span className="overview-label">Tugas Selesai</span>
-                        </div>
-                        <div className="overview-item">
-                            <span className="overview-number">98%</span>
-                            <span className="overview-label">Kepuasan Klien</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="reviews-grid">
-                    {reviews.map((review, index) => (
-                        <div className="review-card" key={index}>
-                            <div className="review-header">
-                                <div className="reviewer-info">
-                                    <div className="reviewer-avatar">
-                                        <i className="fas fa-user"></i>
-                                    </div>
-                                    <div className="reviewer-details">
-                                        <h4>{review.name}</h4>
-                                        <p>{review.role}</p>
-                                    </div>
+        <section id="reviews" className="reviews" style={{ padding: '100px 0', overflow: 'hidden' }}>
+            <div className="container" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                <h2 className="section-title">Happy Clients</h2>
+                <p className="section-subtitle">Mereka yang sudah terbantu oleh NgidihTulungID</p>
+            </div>
+
+            <div className="reviews-marquee-container">
+                {/* Duplicate content to ensure smooth loop if width is large */}
+                <div className="marquee-track">
+                    {[...reviews, ...reviews, ...reviews].map((review, index) => (
+                        <div className="marquee-card" key={index}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                                <div style={{ width: '40px', height: '40px', background: '#87ceeb', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3c72', fontWeight: 'bold' }}>
+                                    {review.name[0]}
                                 </div>
-                                <div className="review-stars">
-                                    {[...Array(5)].map((_, i) => <i key={i} className="fas fa-star"></i>)}
+                                <div>
+                                    <h4 style={{ margin: 0, color: '#fff' }}>{review.name}</h4>
+                                    <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>{review.role}</span>
                                 </div>
                             </div>
-                            <p className="review-text">{review.text}</p>
+                            <p style={{ fontStyle: 'italic', color: '#e2e8f0' }}>"{review.text}"</p>
                         </div>
                     ))}
                 </div>
